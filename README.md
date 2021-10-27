@@ -9,14 +9,10 @@ See the website live at https://fitprog.com
 
 ## Features
 
-*Calculate your BMI, BMR, and TDEE quickly and easily.
-*Create a 4-week 5/3/1 Workout plan
-
-## Roadmap
-
-*Implement several other common workout plans.
-*Create a tracking system.
-*Create a dashboard.
+- [x] Calculate your BMI, BMR, and TDEE quickly and easily.
+- [x] Create a 4-week 5/3/1 template
+- [ ] Create a Starting Strength template
+- [ ] Create a tracking system w/ dashboard and auth0
 
 Major changes on the way.
 
