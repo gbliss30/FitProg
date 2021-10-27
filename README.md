@@ -9,8 +9,8 @@ See the website live at https://fitprog.com
 
 ## Features
 
--Calculate your BMI, BMR, and TDEE quickly and easily. -Create a 4-week 5/3/1
-Workout plan
+-Calculate your BMI, BMR, and TDEE quickly and easily.
+-Create a 4-week 5/3/1 Workout plan
 
 ## Roadmap
 
