@@ -1,0 +1,55 @@
+@import 'health';
+@import 'home';
+@import 'workout';
+
+body {
+    background: url('../img/barbell.jpeg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    min-height: calc(100vh - 91.88px);
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: overlay;
+}
+
+#alert {
+    width: 100vw;
+    color: #000;
+    font-weight: bold;
+    text-align: center;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-container {
+    width: 100vw;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown-menu {
+    background: #1a1a1a;
+
+    a {
+        color: #989898;
+
+        &:hover {
+            background: #1a1a1a;
+            color: #fff;
+        }
+    }
+}
+
+.invisible {
+    display: none;
+}

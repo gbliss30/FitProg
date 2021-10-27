@@ -1,0 +1,174 @@
+<!--
+Designed by Gabriel Bliss, © 2021
+Created on: 8/25/2021
+Last update: 10/22/2021
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/main.min.css">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous" defer></script>
+	<script src="./scripts/main.js" defer></script>
+	<script src="./scripts/health.js" defer></script>
+	<script src="./scripts/531.js" defer></script>
+
+	<title>FitProg - Simple Health & Fitness Calculator</title>
+</head>
+<body>
+	<!-- Nav -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">FitProg</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarColor01">
+				<ul class="navbar-nav me-auto">
+					<li class="nav-item">
+						<a class="nav-link active" id="home-button" href="#">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="health-button" href="#">Health</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Workout</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" id="button-531" href="#">5/3/1</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Alert -->
+	<div id="alert" class=""></div>
+
+	<!-- Content -->
+	<div class="content-container">
+		<!-- Home -->
+		<section id="home" class="container content-section">
+			<h1 class="display-1">FitProg</h1>
+			<h3>An easy to use fitness & wellness tracker</h3><br />
+			<p>The purpose of this website is to take your personal health and fitness data and turn it into a visual tool to keep you motivated. By using the SMART goal setting system we can all reach our fitness and wellness goals.</p>
+		</section>
+
+		<!-- Health Input -->
+		<section id="health" class="container content-section invisible">
+			<div id="health-form" class="col-lg">
+				<form>
+					<legend>Measurement System</legend>
+					<div class="form-group radio">
+						<label for="health_english">English &nbsp;<input type="radio" class="form-check-input" name="measurement-system" id="health_english" value="english" checked=""></label>
+						<label for="health_metric">Metric &nbsp;<input type="radio" class="form-check-input" name="measurement-system" id="health_metric" value="metric"></label>
+					</div>
+					<legend>Weight, Height, and Age</legend>
+					<div class="form-group numbers">
+						<input type="number" class="form-control" id="basic-weight" placeholder="Weight in lbs/kg" required ><br />
+						<input type="number" class="form-control" id="basic-height" placeholder="Height in inches/cm" required ><br />
+						<input type="number" class="form-control" id="basic-age" placeholder="Age in years" required ><br />
+					</div>
+					<legend>Gender</legend>
+					<div class="form-group radio">
+						<label for="health_male">Male &nbsp;
+							<input type="radio" class="form-check-input" name="gender" id="health_male" value="male" checked="">
+						</label>
+						<label for="health_female">Female &nbsp;
+							<input type="radio" class="form-check-input" name="gender" id="health_female" value="female">
+						</label>
+					</div>
+					<legend>How Active Are You?</legend>
+					<div class="form-group">
+						<select class="form-select" id="basic-activity" name="basic-activity">
+							<option disabled="true" value="null" selected >Activity Level</option>
+							<option value="1.2">Sedentary</option>
+							<option value="1.375">Lightly Active (1-3 times a week)</option>
+							<option value="1.55">Moderately Active (3-5 times a week)</option>
+							<option value="1.725">Very Active (6-7 times a week)</option>
+							<option value="1.9">Extremely Active (2x a day)</option>
+						</select>
+					</div>
+					<div class="form-group buttons">
+						<button type="submit" id="health-submit" class="btn btn-primary">Submit</button>
+						<button type="reset" id="health-reset" class="btn btn-primary">Reset</button>
+					</div>
+				</form>
+			</div>
+			<div id="health-results" class="col-lg invisible">
+				<span id="BMI"></span>
+				<span id="BMR"></span>
+				<span id="TDEE"></span> <br />
+				
+				<button id="health-back" class="btn btn-primary">Back</button>
+			</div>
+			
+		</section>
+		
+		<!-- Workout -->
+		<section id="workout" class="container content-section invisible">
+			<div id="531-form" class="col-lg">
+				<form>
+					<legend>Measurement System</legend>
+					<div class="form-group radio">
+						<label for="531_english"><input type="radio" class="form-check-input" name="system531" id="531_english" value="english" checked=""> English (45, 35, 25, 10, 5, 2.5 lbs weights used)</label><br />
+						<label for="531_metric"><input type="radio" class="form-check-input" name="system531" id="531_metric" value="metric"> Metric (20, 15, 10, 5, 2.5 kg weights used)</label>
+					</div>
+					<legend>One Rep Maxes</legend>
+					<div class="row">
+						<div class="col">
+							<input type="number" name="531Input" class="form-control" placeholder="OHP Weight" required >
+						</div>
+						<div class="col">
+							<input type="number" name="531Input" class="form-control" placeholder="OHP Reps" required >
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<input type="number" name="531Input" class="form-control" placeholder="Deadlift Weight" required >
+						</div>
+						<div class="col">
+							<input type="number" name="531Input" class="form-control" placeholder="Deadlift Reps" required >
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<input type="number" name="531Input" class="form-control" placeholder="Bench Weight" required >
+						</div>
+						<div class="col">
+							<input type="number" name="531Input" class="form-control" placeholder="Bench Reps" required >
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<input type="number" name="531Input" class="form-control" placeholder="Squat Weight" required >
+						</div>
+						<div class="col">
+							<input type="number" name="531Input" class="form-control" placeholder="Squat Reps" required >
+						</div>
+					</div><br />
+					<div class="form-group buttons">
+						<button type="submit" id="531-submit" class="btn btn-primary">Submit</button>
+						<button type="reset" id="531-reset" class="btn btn-primary">Reset</button>
+					</div>
+				</form>
+			</div>
+			<div id="531-results-container" class="col-lg invisible">
+				<div id="531-results"></div>
+				<button id="531-back" class="btn btn-primary">Back</button>
+			</div>
+		</section>
+
+	</div>
+</body>
+</html>

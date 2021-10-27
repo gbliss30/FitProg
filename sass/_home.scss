@@ -1,0 +1,21 @@
+#home {
+    background: rgba(26, 26, 26, 0.6);
+    padding: 1rem 1rem;
+
+    h1,
+    h3,
+    p {
+        text-align: center;
+        color: #fff;
+
+        a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.8s;
+
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+}
